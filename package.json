@@ -9,7 +9,8 @@
     "flex-plugin-scripts": "4.1.3",
     "react": "16.5.2",
     "react-dom": "16.5.2",
-    "react-emotion": "9.2.6"
+    "react-emotion": "9.2.6",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@material-ui/core": "^3.9.3",

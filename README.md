@@ -1,31 +1,56 @@
-# Your custom Twilio Flex Plugin
+# Custom User Controls Plugin
 
-Twilio Flex Plugins allow you to customize the appearance and behavior of [Twilio Flex](https://www.twilio.com/flex). If you want to learn more about the capabilities and how to use the API, check out our [Flex documentation](https://www.twilio.com/docs/flex).
+This is a plugin for Twilio Flex that provides a configuration feature for Worker Activities such that they can be 
 
-## Setup
+- ordered
+- have visibility of activities controlled by worker skills
 
-Make sure you have [Node.js](https://nodejs.org) as well as [`npm`](https://npmjs.com). We support Node >= 10.12 (and recommend the _even_ versions of Node). Afterwards, install the dependencies by running `npm install`:
+## disclaimer
 
-```bash
-cd 
+The Flex Component "UserControls" which is the activity selector and current status indicator at the top right of the flex screen, lacks appropriate properties or hooks to modify the OOTB behavior without completely replacing the component.
 
-# If you use npm
-npm install
+This plugin uses a wrapper around these components to apply css to the underlying component to order and hide the activity elementts.  This is not an ideal approach but is a tidy solution until appropriate hooks become available.  An alternative approach would be to completely rewrite the underlying components but this would be a lot more invasive and magnitudes of effort greater.
+
+## dependencies
+
+This plugin relies on custom configuration being applied to your underlying [Flex Configuration](https://www.twilio.com/docs/flex/developer/ui/configuration#modifying-configuration-for-flextwiliocom)
+
+for each activity sid you want to add an entry to the following ui_attributes element
+
+```
+"agentActivityRules": {
+	"<ACTIVITY_SID>" :  {
+		"requiredSkill" : "skill_name",
+		"sortOrder": order
+	}
+}
 ```
 
-Next, please install the [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart) by running:
+As an example:
 
-```bash
-brew tap twilio/brew && brew install twilio
+```
+"agentActivityRules": {
+            "WA845ba1c86cb933b0806deabb39784c66": {
+                "requiredSkill": "testing",
+                "sortOrder": 0
+            },
+            "WA6af363ff8880786f37c453bfa297dca1": {
+                "requiredSkill": null,
+                "sortOrder": 1
+            },
+            "WAeee0165b5d13a7d246401dc7771c04f0": {
+                "requiredSkill": null,
+                "sortOrder":2
+            },
+}
 ```
 
-Finally, install the [Flex Plugin extension](https://github.com/twilio-labs/plugin-flex/tree/v1-beta) for the Twilio CLI:
+NOTE: **Any activities that are not configured will not show.**
 
-```bash
-twilio plugins:install @twilio-labs/plugin-flex@beta
-```
+## use
 
-## Development
-
-Run `twilio flex:plugins --help` to see all the commands we currently support. For further details on Flex Plugins refer to our documentation on the [Twilio Docs](https://www.twilio.com/docs/flex/developer/plugins/cli) page.
+- checkout
+- setup flex configuration
+- npm install
+- twilio flex:plugins:start
 
