@@ -1,5 +1,8 @@
 import styled from 'react-emotion';
 
+/**
+ * Using CSS to sort the array and show/hide items as per configuration
+ */
 export const UserControlsWrapper = styled('div')`
   ul.Twilio-UserControls-AccountMenu {
     display: flex;
