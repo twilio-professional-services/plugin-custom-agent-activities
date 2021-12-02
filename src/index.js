@@ -1,4 +1,4 @@
 import * as FlexPlugin from 'flex-plugin';
-import CustomUserControlsPlugin from './CustomUserControlsPlugin';
+import CustomAgentActivities from './CustomAgentActivities';
 
-FlexPlugin.loadPlugin(CustomUserControlsPlugin);
+FlexPlugin.loadPlugin(CustomAgentActivities);

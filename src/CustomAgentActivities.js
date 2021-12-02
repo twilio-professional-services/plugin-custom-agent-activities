@@ -6,9 +6,9 @@ import RegisterFlexNotifications from './flex-hooks/notifications';
 
 import reducers, { namespace } from './states';
 
-const PLUGIN_NAME = 'CustomUserControlsPlugin';
+const PLUGIN_NAME = 'CustomAgentActivities';
 
-export default class CustomUserControlsPlugin extends FlexPlugin {
+export default class CustomAgentActivities extends FlexPlugin {
   constructor() {
     super(PLUGIN_NAME);
   }
