@@ -1,7 +1,8 @@
-import React from 'react';
 import { VERSION } from '@twilio/flex-ui';
 import { FlexPlugin } from 'flex-plugin';
-import CustomizeFlexComponents from './init/components';
+import CustomizeFlexComponents from './flex-hooks/components';
+import ConfigureFlexStrings from './flex-hooks/strings';
+import RegisterFlexNotifications from './flex-hooks/notifications';
 
 import reducers, { namespace } from './states';
 
@@ -21,6 +22,8 @@ export default class CustomUserControlsPlugin extends FlexPlugin {
    */
   init(flex, manager) {
     this.registerReducers(manager);
+    ConfigureFlexStrings(flex, manager);
+    RegisterFlexNotifications(flex, manager);
     CustomizeFlexComponents(flex, manager);
   }
 

@@ -15,14 +15,7 @@ class CustomUserControls extends Component {
     // Mostly because there isn't a way to hook into the native component
     return (
       <UserControlsWrapper activitiesConfig={AgentActivities.getCSSConfig()}>
-        <Flex.UserControls>
-          <Flex.UserCard
-            large
-            isAvailable={isAvailable}
-            imageUrl={attributes.image_url}
-            firstLine={fullName}
-            secondLine={Flex.templates.UserControlWorkerSecondLine({ worker })} />
-        </Flex.UserControls>
+        <Flex.UserControls />
       </UserControlsWrapper>
     );
   }
