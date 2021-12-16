@@ -51,22 +51,23 @@ NOTE: **Any activities that are not configured will not show.**
 
 1. Checkout or clone this repository:
 
-	  ```bash
-		https://github.com/twilio-professional-services/plugin-custom-agent-activities.git
-		```
+	  ```
+	https://github.com/twilio-professional-services/plugin-custom-agent-activities.git
+	  ```
+
 
 2. Setup flex configuration as mentioned above under dependencies.
 
 	In order to do this you need to first get the flex configuration, you can do that by:
 
-	```bash
+	```
 	curl -X GET 'https://flex-api.twilio.com/v1/Configuration' \
 	-u $TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN
 	```
 
 	Copy the ui_attributes portion from the response you get and make the POST request with the updates to the ui_attributes
 
-	```bash
+	```
 	curl -X POST 'https://flex-api.twilio.com/v1/Configuration' \
     -u $TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN \
     -H 'Content-Type: application/json' \
@@ -77,24 +78,25 @@ NOTE: **Any activities that are not configured will not show.**
         ...old properties continued
         }
     }'
-		```
+    ```
+
 
 3. Change directory to the plugin
 
-	```bash
+	```
 	cd plugin-custom-agent-activities
 	```
 
 4. Install the dependencies
 
-	```bash
-	# Install the dependencies of the Flex Plugin
+	```
 	npm install
 	```
 
 5. Ensure that the `appConfig.example.js` under the public folder has been updated to `appConfig.js`
 
 6. Run plugin on a local environment using :
-	```bash
+
+	```
 	twilio flex:plugins:start
 	```
