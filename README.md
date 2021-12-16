@@ -1,7 +1,7 @@
 # Custom User Controls Plugin
 
 This is a plugin for Twilio Flex that provides a configuration feature for Worker Activities such that they can be
- 
+
 - ordered
 - have visibility of activities controlled by worker skills
 
