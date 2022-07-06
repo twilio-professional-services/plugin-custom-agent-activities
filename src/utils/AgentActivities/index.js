@@ -21,6 +21,8 @@ class AgentActivities {
     const { routing = { skills: [], levels: {} } } = attributes;
     const skills = routing.skills || [];
 
+
+
     return Array.from(activities.values()).reduce((results, activity, idx) => {
       // default the cssConfig to hide this element
       let cssConfig = { idx, display: 'none', order: idx };
@@ -33,6 +35,10 @@ class AgentActivities {
         if (!requiredSkill || skills.includes(requiredSkill)) {
           // show the activity
           cssConfig.display = 'flex';
+          console.log("activity rule",activity )
+          console.log("activityRule ",activityRule)
+
+
         }
         // set the order of the activity
         cssConfig.order = sortOrder;
@@ -65,7 +71,6 @@ class AgentActivities {
       }
       return results;
     }, []);
-
     return sortBy(eligibleSkills, 'sortOrder').map(result => result.activity);
   }
 }

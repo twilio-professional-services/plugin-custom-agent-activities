@@ -1,4 +1,4 @@
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import { createStyles } from '@material-ui/core';
 
 export const ContentWrapper = styled('div')`

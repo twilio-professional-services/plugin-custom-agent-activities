@@ -1,14 +1,13 @@
+import React from 'react';
 import { VERSION } from '@twilio/flex-ui';
-import { FlexPlugin } from '@twilio/flex-plugin';
-import CustomizeFlexComponents from './flex-hooks/components';
-import ConfigureFlexStrings from './flex-hooks/strings';
-import RegisterFlexNotifications from './flex-hooks/notifications';
+import { FlexPlugin } from 'flex-plugin';
 
+import CustomTaskListContainer from './components/CustomTaskList/CustomTaskList.Container';
 import reducers, { namespace } from './states';
 
-const PLUGIN_NAME = 'CustomAgentActivities';
+const PLUGIN_NAME = 'TestPlugin';
 
-export default class CustomAgentActivities extends FlexPlugin {
+export default class TestPlugin extends FlexPlugin {
   constructor() {
     super(PLUGIN_NAME);
   }
@@ -20,11 +19,11 @@ export default class CustomAgentActivities extends FlexPlugin {
    * @param flex { typeof import('@twilio/flex-ui') }
    * @param manager { import('@twilio/flex-ui').Manager }
    */
-  init(flex, manager) {
+  async init(flex, manager) {
     this.registerReducers(manager);
-    ConfigureFlexStrings(flex, manager);
-    RegisterFlexNotifications(flex, manager);
-    CustomizeFlexComponents(flex, manager);
+
+    const options = { sortOrder: -1 };
+    flex.AgentDesktopView.Panel1.Content.add(<CustomTaskListContainer key="TestPlugin-component" />, options);
   }
 
   /**
@@ -34,7 +33,7 @@ export default class CustomAgentActivities extends FlexPlugin {
    */
   registerReducers(manager) {
     if (!manager.store.addReducer) {
-      // eslint: disable-next-line
+      // eslint-disable-next-line
       console.error(`You need FlexUI > 1.9.0 to use built-in redux; you are currently on ${VERSION}`);
       return;
     }

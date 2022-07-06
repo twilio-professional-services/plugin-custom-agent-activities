@@ -18,6 +18,7 @@ class NoTaskCanvasAvailability extends Component {
         }
 
         const activities = AgentActivities.getEligibleActivites(worker.worker);
+        console.log("no task canvas ",activities );
         return (
             <FormControlWrapper>
                 <FormControl fullWidth>

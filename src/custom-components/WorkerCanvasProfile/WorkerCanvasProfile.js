@@ -23,6 +23,7 @@ class WorkerCanvasProfile extends Component {
     }
 
     const activities = AgentActivities.getEligibleActivites(worker);
+    console.log("wonder canvas ", activities);
     const currentActivity = activities.find(activity => activity.name === worker.activityName);
     return (
       <ContentWrapper>

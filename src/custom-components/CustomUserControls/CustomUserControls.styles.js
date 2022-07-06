@@ -1,4 +1,4 @@
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 
 export const UserControlsWrapper = styled('div')`
   ul.Twilio-UserControls-AccountMenu {
@@ -9,8 +9,10 @@ export const UserControlsWrapper = styled('div')`
       order: 1;
     }
     ${props => {
+      console.log("props", props)
     return props.activitiesConfig.map(config => {
       const { idx, display, order } = config;
+   
       // NOTE: idx/order are 0 based, and +2 is to skip the first <li> which is the list title
       return `
           & li:nth-of-type(${idx + 2}) {

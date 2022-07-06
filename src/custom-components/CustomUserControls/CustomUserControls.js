@@ -10,6 +10,9 @@ class CustomUserControls extends Component {
     const { workerState: { worker } } = this.props;
     const attributes = worker.attributes;
     const { fullName, isAvailable } = worker;
+    console.log("user wrapper ", AgentActivities.getCSSConfig())
+
+   
     // NOTE: This will use a "hack" of sorts...
     // Using css it will show/hide and change the order of the activities
     // Mostly because there isn't a way to hook into the native component
